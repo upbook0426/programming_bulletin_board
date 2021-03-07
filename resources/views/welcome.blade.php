@@ -1,7 +1,10 @@
 <x-guest-layout>
     <div>
         @auth
-            <a href="{{ url('/dashboard') }}">Dashboard</a>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button type="submit">ログアウト</button>
+            </form>
         @else
             <a href="{{ route('login') }}">Log in</a>
             <a href="{{ route('register') }}">Register</a>

@@ -19,7 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->enum('status', ['public', 'draft']);
-            $table->datetime('released_at');
+            $table->datetime('released_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

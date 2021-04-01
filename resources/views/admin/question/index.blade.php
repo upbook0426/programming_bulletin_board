@@ -6,10 +6,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Home　></a>
                 </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> fcbd478dfa347f99b4de431f35abcb26d941bb48
                 <li class="nav-item">
                     <a class="nav-link" href="#">質問一覧</a>
                 </li>
@@ -19,13 +15,9 @@
     <br>
     <div class="container-fluid">
         <h4>質問一覧</h4>
-<<<<<<< HEAD
 
         <div>
 
-=======
-        <div>
->>>>>>> fcbd478dfa347f99b4de431f35abcb26d941bb48
             <table class="table table-bordered">
                 <thead>
                     <tr>

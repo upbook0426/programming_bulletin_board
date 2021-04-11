@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
         {{$slot}}

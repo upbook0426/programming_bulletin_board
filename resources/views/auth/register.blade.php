@@ -1,5 +1,4 @@
-<x-guest-layout>
-    <x-auth-validation-errors :errors="$errors" />
+<x-layouts.auth>
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <div>
@@ -32,4 +31,4 @@
             </x-button>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.auth>

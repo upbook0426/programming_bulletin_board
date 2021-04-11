@@ -1,13 +1,8 @@
-<x-guest-layout>
+<x-layouts.app>
+    <x-header/>
     <div>
-        @auth
-            <form action="{{ route('logout') }}" method="post">
-                @csrf
-                <button type="submit">ログアウト</button>
-            </form>
-        @else
-            <a href="{{ route('login') }}">Log in</a>
-            <a href="{{ route('register') }}">Register</a>
-        @endauth
+        @guest
+            <a href="{{ route('register') }}">新規登録はこちらから</a>
+        @endguest
     </div>
-</x-guest-layout>
+</x-layouts.app>

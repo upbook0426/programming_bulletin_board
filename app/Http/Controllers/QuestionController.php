@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\PublishStateType;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\QuestionRequest;
+use App\Http\Requests\Question\StoreRequest;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +17,7 @@ class QuestionController extends Controller
         return view('questions.create', compact('status'));
     }
 
-    public function store(QuestionRequest $request)
+    public function store(StoreRequest $request)
     {
         $question = new Question();
         $question->user_id = Auth::user()->id;

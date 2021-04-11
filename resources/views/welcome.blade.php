@@ -1,4 +1,4 @@
-<x-layouts.guest>
+<x-layouts.app>
     <div>
         @auth
             <form action="{{ route('logout') }}" method="post">
@@ -11,4 +11,4 @@
             <a href="{{ route('register') }}">Register</a>
         @endauth
     </div>
-</x-layouts.guest>
+</x-layouts.app>

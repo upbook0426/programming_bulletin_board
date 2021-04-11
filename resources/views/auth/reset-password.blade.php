@@ -1,26 +1,22 @@
-<x-layouts.guest>
-    <x-auth-validation-errors :errors="$errors" />
+<x-layouts.auth>
+    <h3 class="h3">パスワード再設定</h3>
+    <x-auth-session-status :status="$errors->first('email')" />
     <form method="POST" action="{{ route('password.update') }}">
         @csrf
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
-        <div>
-            <x-label for="email" value="Email" />
-            <x-input id="email" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+        <input type="hidden" name="email" value="{{ old('email', $request->email) }}">
+        <div class="form-group">
+            <label>パスワード</label>
+            <input class="form-control" type="password" name="password" value="{{ old('password') }}" >
+            <x-validation-error key="password" />
         </div>
-        <div>
-            <x-label for="password" value="Password" />
-            <x-input id="password" type="password" name="password" required />
+        <div class="form-group">
+            <label>パスワード確認</label>
+            <input class="form-control" type="password" name="password_confirmation" value="{{ old('password_confirmation')}}">
+            <x-validation-error key="password_confirmation" />
         </div>
-        <div>
-            <x-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-input id="password_confirmation"
-                type="password"
-                name="password_confirmation" required />
-        </div>
-        <div>
-            <x-button>
-                Reset Password
-            </x-button>
+        <div class="form-group">
+            <button class="btn btn-primary w-100" type="submit">パスワードを再設定</button>
         </div>
     </form>
-</x-layouts.guest>
+</x-layouts.auth>

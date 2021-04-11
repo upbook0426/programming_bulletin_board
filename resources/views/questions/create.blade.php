@@ -1,4 +1,4 @@
-<x-layouts.admin>
+<x-layouts.app>
     <h2>質問投稿</h2>
     <div class="container">
         <div class="row">
@@ -37,7 +37,7 @@
             質問投稿する
         </button>
     </form>
-</x-layouts.admin>
+</x-layouts.app>
 
 <script type="text/javascript">
 jQuery(function($){

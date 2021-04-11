@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
     <h2>質問投稿</h2>
     <div class="container">
         <div class="row">
@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('question/input')}}">
+    <form method="POST" action="{{ route('questions.create') }}">
         @csrf
 
         <div>
@@ -37,7 +37,7 @@
             質問投稿する
         </button>
     </form>
-</x-admin-layout>
+</x-layouts.admin>
 
 <script type="text/javascript">
 jQuery(function($){

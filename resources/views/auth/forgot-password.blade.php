@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layouts.guest>
     <div>Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.</div>
     <x-auth-session-status :status="session('status')" />
     <x-auth-validation-errors :errors="$errors" />
@@ -14,4 +14,4 @@
             </x-button>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.guest>

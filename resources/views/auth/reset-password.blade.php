@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-validation-errors :errors="$errors" />
     <form method="POST" action="{{ route('password.update') }}">
         @csrf
@@ -23,4 +23,4 @@
             </x-button>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.guest>

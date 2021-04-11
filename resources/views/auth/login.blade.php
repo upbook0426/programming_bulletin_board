@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-session-status :status="session('status')" />
     <x-auth-validation-errors :errors="$errors" />
     <form method="POST" action="{{ route('login') }}">
@@ -29,4 +29,4 @@
             </x-button>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.guest>

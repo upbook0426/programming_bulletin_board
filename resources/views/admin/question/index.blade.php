@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">プログラミング質問掲示板</a>
@@ -34,4 +34,4 @@
             </table>
         </div>
     </div>
-</x-admin-layout>
+</x-layouts.admin>

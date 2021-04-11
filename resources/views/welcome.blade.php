@@ -1,14 +1,8 @@
 <x-layouts.app>
+    <x-header/>
     <div>
-        @auth
-            <form action="{{ route('logout') }}" method="post">
-                @csrf
-                <button type="submit" onclick="return confirm('ログアウトしますか？')">ログアウト</button>
-            </form>
-            <a href="{{ route('questions.create') }}">質問投稿</a>
-        @else
-            <a href="{{ route('login') }}">Log in</a>
-            <a href="{{ route('register') }}">Register</a>
-        @endauth
+        @guest
+            <a href="{{ route('register') }}">新規登録はこちらから</a>
+        @endguest
     </div>
 </x-layouts.app>

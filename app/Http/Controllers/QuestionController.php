@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
 use App\Enums\PublishStateType;
 use App\Http\Controllers\Controller;
@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
-    public function index()
+    public function create()
     {
         $status = PublishStateType::toSelectArray();
-        return view('question.index', compact('status'));
+        return view('questions.create', compact('status'));
     }
 
     public function store(QuestionRequest $request)

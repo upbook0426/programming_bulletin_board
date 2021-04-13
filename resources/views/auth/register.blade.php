@@ -4,11 +4,12 @@
         @csrf
         <div class="form-group">
             <x-label for="name" value="名前" />
-            <x-input class="form-control" id="name" type="text" name="name" :value="old('name')" required autofocus />
+            <x-input class="form-control" id="name" type="text" name="name" :value="old('name')" autofocus />
+            <x-validation-error key="name"/>
         </div>
         <div class="form-group">
             <x-label for="email" value="メールアドレス" />
-            <x-input class="form-control" id="email" type="email" name="email" :value="old('email')" required />
+            <x-input class="form-control" id="email" type="email" name="email" :value="old('email')"/>
         </div>
         <div class="form-group">
             <x-label for="password" value="パスワード" />
@@ -18,6 +19,7 @@
                 type="password"
                 name="password"
                 required autocomplete="new-password" />
+                <x-validation-error key="password"/>
         </div>
         <div class="form-group">
             <x-label for="password_confirmation" value="パスワード(確認)" />
@@ -25,14 +27,15 @@
                 class="form-control" 
                 id="password_confirmation"
                 type="password"
-                name="password_confirmation" required />
+                name="password_confirmation"/>
+                <x-validation-error key="password_confirmation"/>
         </div>
         <div class="form-group">
             <button class="btn btn-primary w-100 mb-3" type="submit">
                 登録
             </button>
             <a href="{{ route('login') }}">
-                ログイン
+            既に登録済みの方
             </a>
         </div>
     </form>

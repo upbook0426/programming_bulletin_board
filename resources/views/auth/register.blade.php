@@ -1,35 +1,42 @@
-<x-guest-layout>
-    <x-auth-validation-errors :errors="$errors" />
+<x-layouts.auth>
+    <h3 class="h3 text-center">新規登録</h3>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-        <div>
-            <x-label for="name" value="Name" />
-            <x-input id="name" type="text" name="name" :value="old('name')" required autofocus />
+        <div class="form-group">
+            <x-label for="name" value="名前" />
+            <x-input class="form-control" id="name" type="text" name="name" :value="old('name')" autofocus />
+            <x-validation-error key="name"/>
         </div>
-        <div>
-            <x-label for="email" value="Email" />
-            <x-input id="email" type="email" name="email" :value="old('email')" required />
+        <div class="form-group">
+            <x-label for="email" value="メールアドレス" />
+            <x-input class="form-control" id="email" type="email" name="email" :value="old('email')"/>
         </div>
-        <div>
-            <x-label for="password" value="Password" />
-            <x-input id="password"
+        <div class="form-group">
+            <x-label for="password" value="パスワード" />
+            <x-input
+                class="form-control" 
+                id="password"
                 type="password"
                 name="password"
                 required autocomplete="new-password" />
+                <x-validation-error key="password"/>
         </div>
-        <div>
-            <x-label for="password_confirmation" value="Confirm Password" />
-            <x-input id="password_confirmation"
+        <div class="form-group">
+            <x-label for="password_confirmation" value="パスワード(確認)" />
+            <x-input
+                class="form-control" 
+                id="password_confirmation"
                 type="password"
-                name="password_confirmation" required />
+                name="password_confirmation"/>
+                <x-validation-error key="password_confirmation"/>
         </div>
-        <div>
+        <div class="form-group">
+            <button class="btn btn-primary w-100 mb-3" type="submit">
+                登録
+            </button>
             <a href="{{ route('login') }}">
-                Already registered?
+            既に登録済みの方
             </a>
-            <x-button>
-                Register
-            </x-button>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.auth>

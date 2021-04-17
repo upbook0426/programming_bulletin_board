@@ -1,11 +1,8 @@
-<x-admin-layout>
+<x-layouts.admin>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">プログラミング質問掲示板</a>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home　></a>
-                </li>
+            <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">質問一覧</a>
                 </li>
@@ -36,4 +33,4 @@
             </table>
         </div>
     </div>
-</x-admin-layout>
+</x-layouts.admin>

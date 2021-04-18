@@ -40,11 +40,14 @@ class ResetPasswordJP extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-    {
+    {   
+        $url = url(route('password.reset',[
+            'token' => $this->token,
+            'email' => $notifiable->email,]));
         return (new MailMessage)
         ->subject(Lang::get('Reset Password Notification'))
         ->line(Lang::get('パスワードリセットのリクエストを受け付けました。'))
-        ->action(Lang::get('パスワードリセット'), url('password/reset', $this->token))
+        ->action(Lang::get('パスワードリセット'), $url)
         ->line(Lang::get('このパスワードは :count 分後に期限切れとなります。', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
         ->line(Lang::get('パスワードのリセットにお心当たりが無い場合は、こちらのメールを無視して下さい。'))        
         ->line(Lang::get('宜しくお願い致します。'));         

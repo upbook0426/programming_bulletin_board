@@ -45,7 +45,7 @@ class ResetPasswordJP extends Notification
             'token' => $this->token,
             'email' => $notifiable->email,]));
         return (new MailMessage)
-        ->subject(Lang::get('Reset Password Notification'))
+        ->subject(Lang::get('mail.password_reset.subject'))
         ->line(Lang::get('パスワードリセットのリクエストを受け付けました。'))
         ->action(Lang::get('パスワードリセット'), $url)
         ->line(Lang::get('このパスワードは :count 分後に期限切れとなります。', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))

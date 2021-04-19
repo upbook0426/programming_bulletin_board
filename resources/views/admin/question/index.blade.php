@@ -12,7 +12,9 @@
     <br>
     <div class="container-fluid">
         <h4>質問一覧</h4>
+
         <div>
+
             <table class="table table-bordered">
                 <thead>
                     <tr>

@@ -11,7 +11,7 @@
     </nav>
     <br>
     <div class="container-fluid">
-        
+
         <div class="card">
             <div class="card-body">
                 <h4>{{htmlspecialchars($question->title, ENT_QUOTES,"UTF-8")}}</h4>
@@ -27,3 +27,9 @@
 
     </div>
 </x-layouts.admin>
+
+<style>
+pre {
+    white-space: pre-wrap;
+}
+</style>

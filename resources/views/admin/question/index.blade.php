@@ -25,7 +25,14 @@
                 </thead>
                 @foreach ($questions as $question)
                 <tr>
-                    <td><a href="{{route('admin.questions.show', ['question'=> $question])}}">{{$question->title}}</a></td>
+                    <td>
+                        @if ($question->status == 'public')
+                            <a href="{{route('admin.questions.show', ['question'=> $question])}}">{{$question->title}}</a>
+                        @else
+                            <span>{{$question->title}}</span>
+                            <span class="badge badge-secondary float-right">非公開</span>
+                        @endif
+                    </td>
                     <td>{{$question->user->name}}</td>
                     <td>{{$question->created_at}}</td>
                 </tr>

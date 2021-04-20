@@ -13,6 +13,7 @@ Route::prefix('questions')->name('questions.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::get('questions', 'QuestionController@index')->name('questions.index');
+    Route::get('questions/{question}', 'QuestionController@show')->name('questions.show');
 });
 
 require __DIR__.'/auth.php';

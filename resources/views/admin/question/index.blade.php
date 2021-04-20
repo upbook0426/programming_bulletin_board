@@ -25,7 +25,7 @@
                 </thead>
                 @foreach ($questions as $question)
                 <tr>
-                    <td>{{$question->title}}</td>
+                    <td><a href="{{route('admin.questions.show', ['question'=> $question])}}">{{$question->title}}</a></td>
                     <td>{{$question->user->name}}</td>
                     <td>{{$question->created_at}}</td>
                 </tr>

@@ -18,7 +18,7 @@ class QuestionController extends Controller
     {
         if ($question->status == "public") {
             return view('admin.question.show', compact('question'));
-        }else{
+        } else {
             return redirect()->route('admin.questions.index');
         }
     }

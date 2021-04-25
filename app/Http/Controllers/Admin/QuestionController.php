@@ -11,6 +11,12 @@ class QuestionController extends Controller
     public function index(Request $request)
     {
         $questions = Question::orderBy('created_at', 'desc')->get();
+
+        //時間の差分のため
+        foreach ($questions as $key => $question) {
+            $question->timeDifference = time() - strtotime($question->created_at);
+        }
+
         return view('admin.question.index', compact('questions'));
     }
 

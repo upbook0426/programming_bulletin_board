@@ -4,6 +4,9 @@
         <ul class="nav">
             @auth
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('questions.index') }}">質問一覧</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('questions.create') }}">質問投稿</a>
                 </li>
                 <li class="nav-item">

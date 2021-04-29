@@ -7,6 +7,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('questions')->name('questions.')->group(function () {
+    Route::get('', 'QuestionController@index')->name('index');
     Route::get('create', 'QuestionController@create')->name('create')->middleware('auth');
     Route::post('create', 'QuestionController@store')->middleware('auth');
 });

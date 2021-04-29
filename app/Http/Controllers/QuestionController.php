@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
+    public function index()
+    {
+        $questions = Question::orderBy('created_at', 'desc')
+            ->where('status', 'public')
+            ->get();
+
+        return view('questions.index', compact('questions'));
+    }
+
     public function create()
     {
         $status = PublishStateType::toSelectArray();

@@ -18,8 +18,7 @@
                         <a href="{{route('admin.questions.show', ['question'=> $question])}}">{{$question->title}}</a>
                     </td>
                     <td>{{$question->user->name}}</td>
-
-                    <x-relative-time :timeDifference="$question->getTimeDifferenceAttribute()"></x-relative-time>
+                    <td><x-relative-time :timeDifference="$question->time_difference"></x-relative-time></td>
                 </tr>
                 @endif
                 @endforeach

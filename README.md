@@ -1,62 +1,41 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 開発
+## 作業の流れ
+### マージまで
+1 issueに対し、1ブランチを作り、そのブランチで作業します。コマンドでも、GUIツール(VScode Source Controlなど)でも行えます。
+1. gitlab上で対応するissueを決定します
+2. ローカルでブランチを作成します。名前はissue-9やissue-9-list-questionsなど。
+3. 作成したブランチに切り替えて作業を行います。
+4. gitlab上でマージリクエストを作成します。これは作業中であっても大丈夫です。その場合、'Mark as Draft'ボタンを押して、タイトルの先頭に、Draftを付けます。
+5. 作業が完了したら、Draftを外し、レビューを依頼します。
+6. 修正点があればコメントします。修正が完了したら、再びレビューを依頼してください。
+7. LGTMでしたらマージします。
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### マージ後
+1. 作業中のブランチからmasterブランチに移動し、pullして変更を取り込みます。
+2. 次のissueに対応するブランチを作成し作業を行います。
 
-## About Laravel
+## 開発上の注意点
+### js、cssファイル
+jquery, bootstrapなどはnpmを使い管理しています。プロジェクトをgit cloneした後や、resources以下のjs、scssファイルを編集するときには、
+`npm run watch`
+や
+`npm run build`
+コマンドを実行してください。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### blade コンポーネント
+[readouble component](https://readouble.com/laravel/8.x/ja/blade.html)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+resources/views/components以下に配置されたbladeファイルは自動的にコンポーネントとして登録されます。コンポーネントは`x-<ファイル名>`というタグエイリアスでどのbladeファイルからでも呼び出せます。
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# 環境
+## データベース
+mysqlを使用。5系でも8系でも問題は起こらないはずです。
 
-## Learning Laravel
+## メールサーバ
+ローカルではひとまずmailtrapを使用して、メール送信機能を確認してください。
+[mailtrap Laravel qiitaの記事](https://qiita.com/ryomaDsakamoto/items/e9d3a2c258dbfc66c524)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## バージョン
+- php 7.3^
+- composer 2.0^
+- node 14.15.4 以上を推奨

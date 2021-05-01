@@ -1,32 +1,28 @@
-<x-guest-layout>
-    <x-auth-session-status :status="session('status')" />
-    <x-auth-validation-errors :errors="$errors" />
+<x-layouts.auth>
+    <h3 class="h3 text-center">ログイン</h3>
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <div>
-            <x-label for="email" value="Email" />
-            <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
+        <div class="form-group">
+            <label>メールアドレス</label>
+            <input class="form-control" type="email" name="email" value="{{ old('email') }}">
+            <x-validation-error key="email"/>
         </div>
-        <div>
-            <x-label for="password" value="Password" />
-            <x-input id="password"
-                type="password"
-                name="password"
-                required autocomplete="current-password" />
+        <div class="form-group">
+            <label>パスワード</label>
+            <input class="form-control" type="password" name="password">
+            <x-validation-error key="password"/>
         </div>
-        <div>
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" name="remember">
-                <span>Remember me</span>
+        <div class="form-group">
+            <label for="remember_me">
+                <input type="checkbox" name="remember">
+                <span>ログイン情報を保つ</span>
             </label>
         </div>
-        <div>
-            <a href="{{ route('password.request') }}">
-                Forgot your password?
-            </a>
-            <x-button>
-                Log in
-            </x-button>
+        <div class="form-group">
+            <button class="btn btn-primary w-100" type="submit">ログイン</button>
         </div>
+        <p>
+            <a href="{{ route('password.request') }}">パスワードをお忘れの方</a>
+        </p>
     </form>
-</x-guest-layout>
+</x-layouts.auth>
